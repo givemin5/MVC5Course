@@ -43,7 +43,7 @@ namespace MVC5Course.Controllers
             }
             return View(client);
         }
-
+        [ChildActionOnly]
         // GET: Clients/Create
         public ActionResult Create()
         {
