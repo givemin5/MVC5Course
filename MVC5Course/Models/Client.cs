@@ -11,6 +11,7 @@ namespace MVC5Course.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
 
     public partial class Client
@@ -24,12 +25,15 @@ namespace MVC5Course.Models
         public int ClientId { get; set; }
         [Required]
         [StringLength(10, ErrorMessage ="不接受 10 個字以上")]
+        [DisplayName("名字")]
         public string FirstName { get; set; }
         [Required]
         [MinLength(5)]
+        [Display(Name = "中間名")]
         public string MiddleName { get; set; }
         [Required]
         [MaxLength(10)]
+       
         public string LastName { get; set; }
         [Required]
         [RegularExpression("[MF]")]
