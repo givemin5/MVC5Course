@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <form action="">
     <input name="name" type="text" />
     <input type="submit" value="搜尋" />
@@ -79,3 +76,7 @@
 </table>
 
 @Html.Action("Create")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
