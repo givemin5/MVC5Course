@@ -78,14 +78,11 @@ namespace MVC5Course.Controllers
         public ActionResult Add20Percent()
         {
             var db = new FabricsEntities();
-            var products = db.Product.Where(x => x.ProductName.Contains("White"));
 
-            foreach (var product in products) {
-                if (product.Price.HasValue)
-                {
-                    product.Price = product.Price.Value * 1.2m;
-                }
-            }
+            var p0 = "%White%";
+            var strSQL = "Update Product Set Price = Price*1.2 Where ProductName like @p0";
+
+            db.Database.ExecuteSqlCommand(strSQL, p0);
 
             try
             {
@@ -105,5 +102,39 @@ namespace MVC5Course.Controllers
 
             return RedirectToAction("Index");
         }
+
+        public ActionResult StoreProduce()
+        {
+            return View();
+        }
+        public ActionResult GetViewBySQLQuery()
+        {
+            var db = new FabricsEntities();
+
+            var Name = "%Mary%";
+
+            var strSQL = @"SELECT
+		 c.ClientId,
+		 c.FirstName,
+		 c.LastName,
+		 (SELECT SUM(o.OrderTotal) 
+		  FROM [dbo].[Order] o 
+		  WHERE o.ClientId = c.ClientId) as OrderTotal
+	FROM 
+		[dbo].[Client] as c Where FirstName like @p0";
+
+            var vw = db.Database.SqlQuery<vw_ClientContribution>(strSQL, Name);
+            return View(vw);
+        }
+
+        public ActionResult ClientContribution()
+        {
+            var db = new FabricsEntities();
+
+            var clientsC = db.vw_ClientContribution.Take(10);
+
+            return View(clientsC);
+        }
+
     }
 }
