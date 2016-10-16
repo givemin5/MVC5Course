@@ -42,8 +42,9 @@ namespace MVC5Course.Controllers
 
             if (product != null)
             {
-                db.OrderLine.RemoveRange(product.OrderLine);
-                db.Product.Remove(product);
+                //db.OrderLine.RemoveRange(product.OrderLine);
+                //db.Product.Remove(product);
+                product.IsDeleted = true;
             }
                 
 
