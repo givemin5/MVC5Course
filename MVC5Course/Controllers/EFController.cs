@@ -40,7 +40,11 @@ namespace MVC5Course.Controllers
             var product = db.Product.Find(id);
 
             if (product != null)
+            {
+                db.OrderLine.RemoveRange(product.OrderLine);
                 db.Product.Remove(product);
+            }
+                
 
             db.SaveChanges();
 
