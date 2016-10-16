@@ -11,9 +11,7 @@ namespace MVC5Course.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,24 +19,12 @@ namespace MVC5Course.Models
         {
             this.Order = new HashSet<Order>();
         }
-
+    
         public int ClientId { get; set; }
-        [Required]
-        [StringLength(10, ErrorMessage ="不接受 10 個字以上")]
-        [DisplayName("名字")]
         public string FirstName { get; set; }
-        [Required]
-        [MinLength(5)]
-        [Display(Name = "中間名")]
         public string MiddleName { get; set; }
-        [Required]
-        [MaxLength(10)]
-       
         public string LastName { get; set; }
-        [Required]
-        [RegularExpression("[MF]")]
         public string Gender { get; set; }
-        [DisplayFormat(DataFormatString ="{0:yyyy/MM/dd}",ApplyFormatInEditMode =true)]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public Nullable<double> CreditRating { get; set; }
         public string XCode { get; set; }
