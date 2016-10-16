@@ -10,7 +10,7 @@ namespace MVC5Course.Controllers
 {
     public class EFController : Controller
     {
-        
+        FabricsEntities db = new FabricsEntities();
         // GET: EF
         public ActionResult Index()
         {
@@ -135,6 +135,9 @@ namespace MVC5Course.Controllers
 
             return View(clientsC);
         }
-
+        public ActionResult QueryStoreProcedure(string keyword)
+        {
+            return View(db.usp_GetClientContribution(keyword));
+        }
     }
 }

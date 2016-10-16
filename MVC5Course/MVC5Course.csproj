@@ -215,6 +215,9 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\usp_GetClientContribution_Result.cs">
+      <DependentUpon>Fabrics.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModels\ClientLoginViewModel.cs" />
     <Compile Include="Models\vw_ClientContribution.cs">
       <DependentUpon>Fabrics.tt</DependentUpon>
@@ -311,6 +314,7 @@
     <Content Include="Views\EF\Details.cshtml" />
     <Content Include="Views\EF\ClientContribution.cshtml" />
     <Content Include="Views\EF\GetViewBySQLQuery.cshtml" />
+    <Content Include="Views\EF\QueryStoreProcedure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
