@@ -37,7 +37,7 @@ namespace MVC5Course.Controllers
         {
             var db = new FabricsEntities();
 
-            var product = db.Product.Where(x => x.ProductId == id).FirstOrDefault();
+            var product = db.Product.Find(id);
 
             if (product != null)
                 db.Product.Remove(product);
@@ -51,9 +51,39 @@ namespace MVC5Course.Controllers
         {
             var db = new FabricsEntities();
 
-            var product = db.Product.Where(x => x.ProductId == id).FirstOrDefault();
+            var product = db.Product.Find(id);
 
             return View(product);
+        }
+
+        public ActionResult Update(int id)
+        {
+            var db = new FabricsEntities();
+            var product = db.Product.Find(id);
+
+            if (product != null)
+                product.ProductName += "!";
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Add20Percent()
+        {
+            var db = new FabricsEntities();
+            var products = db.Product.Where(x => x.ProductName.Contains("White"));
+
+            foreach (var product in products) {
+                if (product.Price.HasValue)
+                {
+                    product.Price = product.Price.Value * 1.2m;
+                }
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }
