@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MVC5Course.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+}
+
+<h2>ProductList</h2>
+
+@{
+    var products = Model.ToArray();
+ }
+
+@using (Html.BeginForm("BatchUpdate", "MB"))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stock)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDeleted)
+            </th>
+        </tr>
+
+        @for(int i=0; i<products.Length;i++)
+        {
+            @Html.HiddenFor(modelItem => products[i].ProductId)
+
+            <tr>
+                <td>
+                    @Html.EditorFor(modelItem => products[i].ProductName)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => products[i].Price)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => products[i].Active)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => products[i].Stock)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => products[i].IsDeleted)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <button type="submit">Go</button>
+}
+
+
+
+

@@ -11,7 +11,7 @@ namespace MVC5Course.Models
         {
             if (this.ProductName.Contains("Black"))
             {
-                yield return new ValidationResult("不雅字眼", new string[] { "ProductName" });
+                //yield return new ValidationResult("不雅字眼", new string[] { "ProductName" });
             }
 
             if (this.Price > 10000000)
@@ -20,7 +20,7 @@ namespace MVC5Course.Models
             }
             if (this.Stock >0 && this.IsDeleted)
             {
-                yield return new ValidationResult("下架前請先清空庫存數量", new string[] { "Stock", "IsDeleted" });
+                //yield return new ValidationResult("下架前請先清空庫存數量", new string[] { "Stock", "IsDeleted" });
             }
         }
     }
@@ -34,7 +34,7 @@ namespace MVC5Course.Models
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> Active { get; set; }
-        [Range(0,1000)]
+        [Range(0,10000)]
         public Nullable<decimal> Stock { get; set; }
         [Required]
         public bool IsDeleted { get; set; }

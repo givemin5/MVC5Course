@@ -10,6 +10,7 @@ namespace MVC5Course.Controllers
     public abstract class BaseController : Controller
     {
         protected ProductRepository repo = RepositoryHelper.GetProductRepository();
+        protected FabricsEntities db = new FabricsEntities();
 
         protected override void HandleUnknownAction(string actionName)
         {

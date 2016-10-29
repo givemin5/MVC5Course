@@ -392,6 +392,7 @@
     <Content Include="Views\MB\Index.cshtml" />
     <Content Include="Views\MB\MyForm.cshtml" />
     <Content Include="Views\MB\MyFormResult.cshtml" />
+    <Content Include="Views\MB\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
