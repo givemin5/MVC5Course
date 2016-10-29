@@ -334,6 +334,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Cat.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -386,10 +387,10 @@
     <Content Include="Views\EF\ClientContribution.cshtml" />
     <Content Include="Views\EF\GetViewBySQLQuery.cshtml" />
     <Content Include="Views\EF\QueryStoreProcedure.cshtml" />
+    <Content Include="Views\AR\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\AR\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
