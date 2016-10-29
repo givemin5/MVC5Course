@@ -16,7 +16,8 @@ namespace MVC5Course.Controllers
         // GET: Products
         public ActionResult Index()
         {
-            return View(repo.All().ToList());
+            IQueryable<Product> products = repo.GetRows(10);
+            return View(products.ToList());
         }
 
         // GET: Products/Details/5
