@@ -13,7 +13,10 @@ namespace MVC5Course.Controllers
     public class ProductsController : Controller
     {
         ProductRepository repo = RepositoryHelper.GetProductRepository();
+
         // GET: Products
+        [Route("首頁")]
+        [Route("清單")]
         public ActionResult Index()
         {
             IQueryable<Product> products = repo.GetRows(10);
