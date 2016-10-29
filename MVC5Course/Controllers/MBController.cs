@@ -19,11 +19,19 @@ namespace MVC5Course.Controllers
 
             return View();
         }
+        [萬聖節活動]
         public ActionResult MyForm()
         {
             return View();
         }
+        [勇者檢定]
+        public ActionResult IamBOSS()
+        {
+            return View();
+        }
+
         [HttpPost]
+        
         public ActionResult MyForm(Product product)
         {
             if (ModelState.IsValid) {
