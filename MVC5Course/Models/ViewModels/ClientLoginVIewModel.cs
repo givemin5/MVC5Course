@@ -16,6 +16,7 @@ namespace MVC5Course.Models.ViewModels
         [Required]
         [MinLength(5)]
         [Display(Name = "中間名")]
+        [DataType(DataType.Password)]
         public string MiddleName { get; set; }
         [Required]
         [MaxLength(10)]
