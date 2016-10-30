@@ -16,7 +16,7 @@ namespace MVC5Course.Controllers
         private FabricsEntities db = new FabricsEntities();
 
         // GET: Clients
-        public ActionResult Index(string name)
+        public ActionResult Index(string name, int? CreditRating,string Sex)
         {
             var client = db.Client.Include(c => c.Occupation);
 
@@ -24,7 +24,19 @@ namespace MVC5Course.Controllers
             {
                 client = client.Where(x => x.FirstName.Contains(name));
             }
+            if (CreditRating != null)
+            {
+                client = client.Where(x => x.CreditRating == CreditRating);
+            }
+            if (!String.IsNullOrEmpty(Sex))
+            {
+                client = client.Where(x => x.Gender == Sex);
+            }
 
+
+            var creditRating = (from x in db.Client select  x.CreditRating).Distinct().ToList();
+            ViewBag.CreditRating = new SelectList(creditRating);
+            ViewBag.Sex = new SelectList(new string[] { "M", "F" });
             client = client.OrderByDescending(x => x.ClientId).Take(10);
 
             return View(client.ToList());

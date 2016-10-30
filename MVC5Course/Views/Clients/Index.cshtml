@@ -7,7 +7,9 @@
 <h2>Index</h2>
 
 <form action="">
-    <input name="name" type="text" />
+    @Html.TextBox("name")
+    @Html.DropDownList("CreditRating","--評價--")
+    @Html.DropDownList("Sex", "--性別--")
     <input type="submit" value="搜尋" />
 
 </form>
