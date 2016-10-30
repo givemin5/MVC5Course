@@ -1,6 +1,8 @@
 ﻿using MVC5Course.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,6 +12,8 @@ namespace MVC5Course.Controllers
     /// <summary>
     /// Model Binding
     /// </summary>
+    /// 
+    [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "Error_DbEntityValidationException")]
     public class MBController : BaseController
     {
         // GET: MB
@@ -54,13 +58,15 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
+        
+
         public ActionResult BatchUpdate(List<MBProductViewModel> products)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 foreach (var item in products)
                 {
-                    var product = repo.Find(item.ProductId);
+                    Product product = repo.Find(item.ProductId);
                     product.ProductName = item.ProductName;
                     product.Active = item.Active;
                     product.Stock = item.Stock;
@@ -76,6 +82,11 @@ namespace MVC5Course.Controllers
 
             return View();
         }
+        public ActionResult ERRORPAGE()
+        {
+            throw new Exception("不給糖就搗蛋!!");
+            return View();
+        }
 
 
 
@@ -87,6 +98,7 @@ namespace MVC5Course.Controllers
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> Active { get; set; }
+        [Required]
         public Nullable<decimal> Stock { get; set; }
         public bool IsDeleted { get; set; }
     }
