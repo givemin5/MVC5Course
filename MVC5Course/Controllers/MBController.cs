@@ -58,11 +58,11 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
-        
 
+        
         public ActionResult BatchUpdate(List<MBProductViewModel> products)
         {
-            //if (ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 foreach (var item in products)
                 {
@@ -85,7 +85,6 @@ namespace MVC5Course.Controllers
         public ActionResult ERRORPAGE()
         {
             throw new Exception("不給糖就搗蛋!!");
-            return View();
         }
 
 
@@ -98,7 +97,6 @@ namespace MVC5Course.Controllers
         public string ProductName { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<bool> Active { get; set; }
-        [Required]
         public Nullable<decimal> Stock { get; set; }
         public bool IsDeleted { get; set; }
     }

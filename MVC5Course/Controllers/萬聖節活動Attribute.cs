@@ -7,7 +7,8 @@ namespace MVC5Course.Controllers
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var value = new Random().Next(0, 10);
+            var random = new Random();
+            var value = random.Next(0, 10);
             if (value % 2 ==1)
                 filterContext.Controller.TempData["活動訊息"] = "搗蛋沒糖吃";
             else
