@@ -1,0 +1,10 @@
+﻿@model double?
+
+@if (Model.HasValue)
+{
+    int num = Convert.ToInt32(Model);
+
+    for (int i = 0; i < num; i++) {
+        @:⭐
+    }
+}
