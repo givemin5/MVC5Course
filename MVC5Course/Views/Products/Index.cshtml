@@ -9,7 +9,15 @@
     {
         Layout = null;
     }
+    ViewBag.Msg = @"this is 
+test";
 }
+<script>
+    //alert('ViewBag.Msg');
+    var str = '@Ajax.JavaScriptStringEncode(ViewBag.Msg)';
+    alert(str);
+</script>
+
 <div id="main">
 
 
