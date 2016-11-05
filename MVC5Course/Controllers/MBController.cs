@@ -13,6 +13,7 @@ namespace MVC5Course.Controllers
     /// Model Binding
     /// </summary>
     /// 
+    [Authorize]
     [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "Error_DbEntityValidationException")]
     public class MBController : BaseController
     {
