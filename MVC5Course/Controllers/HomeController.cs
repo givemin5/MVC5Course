@@ -10,7 +10,6 @@ namespace MVC5Course.Controllers
 {
     public class HomeController : Controller
     {
-        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -41,6 +40,11 @@ namespace MVC5Course.Controllers
             }
 
             return View();
+        }
+
+        public ActionResult GetTime()
+        {
+            return Content(DateTime.Now.ToLongTimeString());
         }
     }
 }

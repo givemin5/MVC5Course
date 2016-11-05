@@ -37,6 +37,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id=item.OrderId }) |
+               
                 @Html.ActionLink("Details", "Details", new { id=item.OrderId }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.OrderId })
             </td>
@@ -44,3 +45,10 @@
     }
     
     </table>
+
+<div id="details"></div>
+
+@section Scripts{
+    
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    }
