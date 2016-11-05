@@ -39,6 +39,18 @@ namespace MVC5Course.Controllers
             return Ok(product);
         }
 
+        [Route("api/prods/{id}/OrderLine")]
+        public IHttpActionResult GetProductOrderLine(int id)
+        {
+            Product product = db.Product.Find(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            var orderlines = db.OrderLine.Where(x => x.ProductId == product.ProductId);
+            return Ok(orderlines);
+        }
+
         // PUT: api/ProductsApi/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProduct(int id, Product product)
